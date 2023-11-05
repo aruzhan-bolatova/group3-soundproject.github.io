@@ -26,7 +26,7 @@ let animation;
 let height = document.documentElement.clientHeight;
 let width = document.documentElement.clientWidth;
 
-let audio = new Audio("soundprojectfinal.wav");
+let audio = new Audio("soundprojectfinal.mp3");
 
 function randInt(min, max) {
   return Math.floor(Math.random() * (max - min) ) + min;
