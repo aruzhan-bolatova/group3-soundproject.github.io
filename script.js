@@ -54,20 +54,6 @@ let radius = 300
 let centerX = width * 0.45; // Adjust the center X-coordinate
 let centerY = 0.45 * height; // Adjust the center Y-coordinate
 
-// let bubble1_1 = new Bubble(randInt(0,width-0.3*height),randInt(0,0.7*height),speed,speed);
-// let bubble1_2 = new Bubble(randInt(0,width-0.3*height),randInt(0,0.7*height),speed,speed);
-// let bubble2 = new Bubble(randInt(0,width-0.3*height),randInt(0,0.7*height),speed,-1*speed);
-// let bubble3_1 = new Bubble(randInt(0,width-0.3*height),randInt(0,0.7*height),-1*speed,-1*speed);
-// let bubble3_2 = new Bubble(randInt(0,width-0.3*height),randInt(0,0.7*height),-1*speed,-1*speed);
-// let bubble4_1 = new Bubble(randInt(0,width-0.3*height),randInt(0,0.7*height),-1*speed,-1*speed);
-// let bubble4_2 = new Bubble(randInt(0,width-0.3*height),randInt(0,0.7*height),-1*speed,-1*speed);
-// let bubble4_3 = new Bubble(randInt(0,width-0.3*height),randInt(0,0.7*height),-1*speed,-1*speed);
-// let bubble5_1 = new Bubble(randInt(0,width-0.3*height),randInt(0,0.7*height),-1*speed,-1*speed);
-// let bubble5_2 = new Bubble(randInt(0,width-0.3*height),randInt(0,0.7*height),-1*speed,-1*speed);
-// let bubble5_3 = new Bubble(randInt(0,width-0.3*height),randInt(0,0.7*height),-1*speed,-1*speed);
-// let bubble6_1 = new Bubble(randInt(0,width-0.3*height),randInt(0,0.7*height),-1*speed,-1*speed);
-// let bubble6_2 = new Bubble(randInt(0,width-0.3*height),randInt(0,0.7*height),-1*speed,-1*speed);
-
 let bubble1_1 = new Bubble(radius, centerX, centerY, 0);
 let bubble1_2 = new Bubble(400, centerX, centerY, 0);
 let bubble2 = new Bubble(radius, centerX, centerY, 0);
@@ -101,8 +87,6 @@ window.onload = function () {
       audioPlaying = true;
       playButtonImage.src = "images/pause.png";
       audio.play();
-      scene1_1.style.visibility = "visible";
-      scene1_2.style.visibility = "visible";
       animation = setInterval(displayCharacters, 10);
     }else{
       audioPlaying = false;
@@ -171,7 +155,10 @@ function displayCharacters(){
   scene6_2.style.left = bubble6_2.x +'px';
   scene6_2.style.top = bubble6_2.y +'px';
 
-
+  if (currentTime == 0) {
+    scene1_1.style.visibility = "visible";
+    scene1_2.style.visibility = "visible";
+  }
   if(currentTime == 58000){
     scene1_1.style.visibility = "hidden"
     scene1_2.style.visibility = "hidden"
@@ -185,11 +172,6 @@ function displayCharacters(){
     scene3_2.style.visibility = "visible";
     body.style.backgroundColor = '#d7c5c8';
   }
-
-  // if(currentTime == 78000){
-  //   scene3_1.style.visibility = "hidden";
-  //   scene3_2.style.visibility = "hidden";
-  // }
 
   if(currentTime == 118900){
     scene3_1.style.visibility = "hidden";
@@ -239,39 +221,4 @@ function displayCharacters(){
     currentTime = 0;
   }
 }
-
-// displayCharacters()
-
-
-// var imageArray = [
-//   'images/1.jpeg',
-//   'images/2.jpeg',
-//   'images/3.jpg',
-//   'images/4.jpeg',
-//   'images/5.jpg'
-// ];
-
-
-// let imageArray = []; // Create an empty array to store the images
-// let currentImage = 0
-// function preload() {
-//   // Load your images and store them in the array
-//   imageArray[0] = loadImage('images/1.jpeg');
-//   imageArray[1] = loadImage('images/2.jpeg');
-//   imageArray[2] = loadImage('images/3.jpg');
-//   imageArray[3] = loadImage('images/4.jpeg');
-//   imageArray[4] = loadImage('images/5.jpg');
-// }
-
-//   // Display the images
-// function mousePressed(){
-//   currentImage++
-//   if (currentImage>= imageArray.length) {
-//     currentImage = 0
-//   }
-//   for (let i = 0; i < imageArray.length; i++) {
-//     image(imageArray[i]); // Display each image at a specific position
-//   }
-// }
-
 
